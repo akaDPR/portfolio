@@ -1,0 +1,7 @@
+# Pretty audience URLs -> single page with the right variant
+# Send these clean links to clients:
+#   yoursite.com/jewellers   (jewellery shops)
+#   yoursite.com/business    (any other business)
+/jewellers   /index.html?for=jewellers   200
+/business    /index.html?for=business    200
+/retail      /index.html?for=business    200
