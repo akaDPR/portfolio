@@ -165,7 +165,27 @@
     width:min(410px,35vw);aspect-ratio:.92;border-radius:280px 280px 12px 12px;overflow:hidden;
     box-shadow:0 40px 80px -34px rgba(120,90,20,.45),0 0 0 1px var(--line),0 0 0 12px rgba(201,161,76,.06);
   }
-  .hero__photo img{width:100%;height:100%;object-fit:cover;filter:saturate(1.04)}
+  /* cinematic crossfade gallery */
+  .gslide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease}
+  .gslide img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05);transform:scale(1.001)}
+  .gslide.on{opacity:1}
+  .gslide.on img{animation:kenburns 5.4s ease forwards}
+  @keyframes kenburns{from{transform:scale(1.001)}to{transform:scale(1.11)}}
+  .gshade{position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(0deg,rgba(20,14,4,.66),rgba(20,14,4,.05) 42%,transparent 60%)}
+  .gcap{position:absolute;left:20px;bottom:20px;z-index:2;color:#fff}
+  .gcap b{font-family:var(--serif);font-size:19px;font-weight:600;display:block;line-height:1.1}
+  .gcap span{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-bright);display:block;margin-top:3px}
+  .gcap.swap b,.gcap.swap span{animation:capIn .6s cubic-bezier(.2,.8,.2,1)}
+  @keyframes capIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+  .hero__dots{position:absolute;right:18px;bottom:24px;z-index:2;display:flex;gap:6px}
+  .dot{width:24px;height:3px;border-radius:3px;background:rgba(255,255,255,.38);overflow:hidden;cursor:pointer;border:0;padding:0}
+  .dot .fill{display:block;height:100%;width:0;background:var(--gold-bright)}
+  .dot.on .fill{animation:dotfill 5400ms linear forwards}
+  @keyframes dotfill{from{width:0}to{width:100%}}
+  .rotw{display:inline-block}
+  .rotw.swap{animation:wordIn .7s cubic-bezier(.2,.8,.2,1)}
+  @keyframes wordIn{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
   .hero__inner{padding:64px 0;width:100%;position:relative;z-index:1}
   .hero__eyebrow{
     display:inline-flex;align-items:center;gap:12px;font-size:clamp(10px,2.8vw,11px);letter-spacing:.3em;
@@ -423,6 +443,7 @@
     .mbar{display:grid}
     footer{padding-bottom:0}
     .hero__photo{opacity:.5;width:min(260px,52vw);right:-12%}
+    .hero__photo .gcap,.hero__dots{display:none}
     .hero__deco{opacity:.7}
     .p-scroller{
       display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
@@ -519,11 +540,22 @@
 <header class="hero" id="top">
   <div class="hero__deco"></div>
   <div class="hero__photo" aria-hidden="true">
-    <img src="https://sriswarnambigaijewellers.com/wp-content/uploads/2025/08/Untitled-design-2-9-450x479.png" alt="" loading="eager" referrerpolicy="no-referrer">
+    <div class="gslide on"><img src="https://sriswarnambigaijewellers.com/wp-content/uploads/2025/08/Untitled-design-2-9-450x479.png" alt="" loading="eager" referrerpolicy="no-referrer"></div>
+    <div class="gslide"><img src="https://sriswarnambigaijewellers.com/wp-content/uploads/2025/08/Untitled-design-2-7.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div>
+    <div class="gslide"><img src="https://sriswarnambigaijewellers.com/wp-content/uploads/2025/08/Untitled-design-2-10-450x479.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div>
+    <div class="gslide"><img src="https://sriswarnambigaijewellers.com/wp-content/uploads/2025/08/Untitled-design.png" alt="" loading="lazy" referrerpolicy="no-referrer"></div>
+    <div class="gshade"></div>
+    <div class="gcap"><b id="gcapName">Antique Necklace</b><span id="gcapMeta">41.530 g · 22KT</span></div>
+    <div class="hero__dots" id="dots">
+      <button class="dot on" aria-label="Show slide 1"><span class="fill"></span></button>
+      <button class="dot" aria-label="Show slide 2"><span class="fill"></span></button>
+      <button class="dot" aria-label="Show slide 3"><span class="fill"></span></button>
+      <button class="dot" aria-label="Show slide 4"><span class="fill"></span></button>
+    </div>
   </div>
   <div class="wrap hero__inner">
     <span class="hero__eyebrow reveal in">Coimbatore · Since 1981</span>
-    <h1 class="reveal in" data-d="1">Where every ornament tells a <em class="shimmer">story of trust</em></h1>
+    <h1 class="reveal in" data-d="1">Where every ornament tells a <em class="shimmer rotw" id="rotw">story of trust</em></h1>
     <p class="hero__sub reveal in" data-d="2">A legacy of 44 years in the heart of Coimbatore. Handcrafted hallmark gold, antique masterpieces and bridal collections — now with single digit wastage, just 9%.</p>
     <div class="hero__actions reveal in" data-d="3">
       <button class="btn btn--gold" data-book>Book an Appointment</button>
@@ -842,6 +874,40 @@
     document.getElementById('mForm').style.display='none';
     document.getElementById('mOk').style.display='block';
   });
+
+  // hero crossfade gallery + headline word morph
+  (function(){
+    const META=[
+      {name:'Antique Necklace',meta:'41.530 g · 22KT',word:'story of trust'},
+      {name:'Bridal Haaram',meta:'50.800 g · 22KT',word:'moment of forever'},
+      {name:'Polki Necklace',meta:'9.670 g · 22KT',word:'touch of royalty'},
+      {name:'Antique Bangles',meta:'20.120 g · 22KT',word:'feeling of pride'},
+    ];
+    const slides=[...document.querySelectorAll('.gslide')];
+    const dots=[...document.querySelectorAll('#dots .dot')];
+    const cap=document.querySelector('.gcap');
+    const capName=document.getElementById('gcapName');
+    const capMeta=document.getElementById('gcapMeta');
+    const rotw=document.getElementById('rotw');
+    const heroEl=document.querySelector('.hero');
+    if(!slides.length||!rotw)return;
+    let gi=0,timer;const DUR=5400;
+    const retrigger=(el,cls)=>{el.classList.remove(cls);void el.offsetWidth;el.classList.add(cls)};
+    function go(n){
+      n=(n+slides.length)%slides.length;
+      slides[gi].classList.remove('on');dots[gi].classList.remove('on');
+      gi=n;
+      slides[gi].classList.add('on');retrigger(dots[gi],'on');
+      capName.textContent=META[gi].name;capMeta.textContent=META[gi].meta;retrigger(cap,'swap');
+      rotw.textContent=META[gi].word;retrigger(rotw,'swap');
+    }
+    const start=()=>{stop();timer=setInterval(()=>go(gi+1),DUR)};
+    const stop=()=>clearInterval(timer);
+    dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);start()}));
+    heroEl.addEventListener('mouseenter',stop);
+    heroEl.addEventListener('mouseleave',start);
+    start();
+  })();
 
   document.querySelectorAll('img[referrerpolicy]').forEach(img=>{
     img.addEventListener('error',()=>{
