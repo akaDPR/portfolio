@@ -442,9 +442,16 @@
     .fab{display:none}
     .mbar{display:grid}
     footer{padding-bottom:0}
-    .hero__photo{opacity:.5;width:min(260px,52vw);right:-12%}
+    .f-bot{padding-bottom:calc(88px + var(--safe-b))}
+    /* trust: 2x2 instead of 4 squished columns */
+    .trust__grid{grid-template-columns:repeat(2,1fr);gap:32px 16px}
+    .trust__item::after{display:none!important}
+    /* hero sized to content, photo recedes behind text */
+    .hero{min-height:auto}
+    .hero__inner{padding:36px 0 52px}
+    .hero__photo{opacity:.3;width:min(248px,54vw);right:-14%;top:46%}
     .hero__photo .gcap,.hero__dots{display:none}
-    .hero__deco{opacity:.7}
+    .hero__deco{opacity:.6}
     .p-scroller{
       display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;scrollbar-width:none;
@@ -463,11 +470,19 @@
     .trust__item:nth-child(3)::after{display:none}
   }
   @media(max-width:520px){
-    .hero__stats{grid-template-columns:repeat(2,1fr);gap:24px}
+    .hero__stats{grid-template-columns:repeat(2,1fr);gap:22px}
     .f-top{grid-template-columns:1fr}
-    .s-6,.s-4,.s-3{grid-column:span 12}
-    .col-card{min-height:64vw}
-    .hero__actions .btn{flex:1}
+    /* collections: full-width bridal banner + 2-up grid below */
+    .s-6{grid-column:span 12}
+    .s-4,.s-3{grid-column:span 6}
+    .col-card{min-height:46vw;padding:18px}
+    .col-card.s-6{min-height:58vw}
+    .col-card h3{font-size:21px}
+    /* full-width stacked CTAs for easy tapping */
+    .hero__actions{flex-direction:column;align-items:stretch;gap:12px}
+    .hero__actions .btn{width:100%}
+    .cta-band .row .btn{width:100%}
+    .cta-band .row{flex-direction:column;align-items:stretch}
     .trust__item::after{display:none!important}
   }
   .swipe-hint{display:none;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--gold-deep);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
