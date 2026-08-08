@@ -185,7 +185,7 @@
   .rotw{display:inline-block;line-height:1.06;padding-bottom:.16em;margin-bottom:-.16em}
   .rotw.swap{animation:wordIn .7s cubic-bezier(.2,.8,.2,1)}
   @keyframes wordIn{0%{opacity:0;transform:translateY(18px)}100%{opacity:1;transform:translateY(0)}}
-  .hero__inner{padding:64px 0;width:100%;position:relative;z-index:1}
+  .hero__inner{padding:64px var(--pad);width:100%;position:relative;z-index:1}
   .hero__eyebrow{
     display:inline-flex;align-items:center;gap:12px;font-size:clamp(10px,2.8vw,11px);letter-spacing:.3em;
     text-transform:uppercase;color:var(--gold-deep);margin-bottom:24px;font-weight:600;
@@ -448,7 +448,7 @@
     .trust__item::after{display:none!important}
     /* hero: text first, then the crossfade gallery as a full in-flow showcase */
     .hero{min-height:auto;display:flex;flex-direction:column}
-    .hero__inner{order:1;padding:36px 0 0}
+    .hero__inner{order:1;padding:36px var(--pad) 0}
     .hero__photo{
       order:2;position:relative;right:auto;top:auto;transform:none;opacity:1;
       width:calc(100% - 2*var(--pad));margin:30px auto 44px;
