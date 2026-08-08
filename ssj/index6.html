@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sri Swarnambigai Jewellers · Since 1981 · Coimbatore</title>
+<meta name="description" content="Sri Swarnambigai Jewellers — 44 years of trust. Hallmark 22KT gold, antique & bridal collections in Coimbatore. Single digit wastage — just 9%.">
+<meta name="theme-color" content="#0a2b25">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Mulish:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --silk:#0b2f29;
+    --silk-2:#0a2822;
+    --silk-deep:#071e1a;
+    --panel:#0f3a32;
+    --ivory:#f4eeda;
+    --ivory-dim:#cfc6ab;
+    --muted:#8fa196;
+    --gold:#c9a24f;
+    --gold-hi:#e9cd7e;
+    --gold-deep:#977932;
+    --rose:#8a2a35;
+    --line:rgba(201,162,79,.28);
+    --line-soft:rgba(244,238,218,.1);
+    --safe-b:env(safe-area-inset-bottom,0px);
+    --pad:clamp(18px,5vw,32px);
+    --display:'Marcellus',Georgia,serif;
+    --serif:'EB Garamond',Georgia,serif;
+    --sans:'Mulish',system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:80px}
+  body{
+    font-family:var(--sans);color:var(--ivory);
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;font-weight:300;
+    background:
+      radial-gradient(130% 70% at 50% 0%,rgba(201,162,79,.09),transparent 55%),
+      repeating-linear-gradient(45deg,rgba(244,238,218,.014) 0 2px,transparent 2px 5px),
+      repeating-linear-gradient(-45deg,rgba(0,0,0,.06) 0 2px,transparent 2px 5px),
+      linear-gradient(180deg,var(--silk) 0%,var(--silk-2) 100%);
+    background-attachment:fixed;
+  }
+  ::selection{background:var(--gold);color:#132a24}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  button{font-family:inherit;color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+
+  /* word-mask reveal — padding protects descenders */
+  .wm{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.15em;margin-bottom:-.15em}
+  .wi{display:inline-block;transform:translateY(115%)}
+  .no-anim .wi,.no-js .wi{transform:none}
+  [data-sr]{opacity:0;transform:translateY(28px)}
+  .no-anim [data-sr],.no-js [data-sr],[data-sr].in{opacity:1;transform:none;transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+
+  /* gold zari divider */
+  .zari{display:flex;align-items:center;gap:16px;justify-content:center;padding:clamp(30px,6vw,48px) var(--pad)}
+  .zari::before,.zari::after{content:'';height:1px;flex:1;max-width:220px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .zari::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .zari span{color:var(--gold-hi);font-size:13px;letter-spacing:.3em}
+
+  /* ---------- ticker ---------- */
+  .ticker{background:var(--silk-deep);color:var(--ivory-dim);overflow:hidden;white-space:nowrap;position:relative;z-index:60;border-bottom:1px solid var(--line)}
+  .ticker__track{display:inline-flex;align-items:center;animation:slide 34s linear infinite;will-change:transform}
+  .ticker:hover .ticker__track{animation-play-state:paused}
+  .ticker span{display:inline-flex;align-items:center;padding:9px 0;font-size:clamp(10px,2.6vw,11px);letter-spacing:.2em;text-transform:uppercase;font-weight:400}
+  .ticker span::after{content:'✻';color:var(--gold);margin:0 clamp(20px,6vw,34px);font-size:9px}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- nav ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(11,47,41,.9);border-bottom:1px solid var(--line);padding:16px 0;transition:.4s ease}
+  nav.scrolled{backdrop-filter:blur(16px) saturate(130%);-webkit-backdrop-filter:blur(16px) saturate(130%);background:rgba(9,38,33,.92);padding:11px 0;box-shadow:0 14px 40px -30px rgba(0,0,0,.9)}
+  .nav__inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;min-width:0}
+  .brand__mark{
+    width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;position:relative;
+    font-family:var(--display);font-size:20px;color:var(--gold-hi);
+    background:radial-gradient(circle at 35% 25%,rgba(233,205,126,.2),transparent 60%);
+  }
+  .brand__mark::before{content:'';position:absolute;inset:0;border:1px solid var(--gold);transform:rotate(45deg)}
+  .brand__txt b{font-family:var(--display);font-size:clamp(15px,4.2vw,18px);letter-spacing:.06em;display:block;line-height:1.1;white-space:nowrap;font-weight:400}
+  .brand__txt small{font-size:clamp(8px,2.2vw,9px);letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .nav__links{display:flex;gap:30px;list-style:none}
+  .nav__links a{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:400;position:relative;padding:4px 0;color:var(--ivory-dim)}
+  .nav__links a::after{content:'';position:absolute;left:50%;bottom:-2px;width:0;height:1px;background:var(--gold-hi);transition:.35s ease;transform:translateX(-50%)}
+  .nav__links a:hover{color:var(--gold-hi)}
+  .nav__links a:hover::after{width:100%}
+  .nav__cta{
+    font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;
+    padding:12px 22px;border:1px solid var(--gold);color:var(--gold-hi);background:none;cursor:pointer;transition:.35s;white-space:nowrap;
+  }
+  .nav__cta:hover{background:var(--gold);color:#132a24}
+  .nav__burger{display:none;width:44px;height:44px;border:0;background:none;cursor:pointer;flex-direction:column;gap:5px;align-items:center;justify-content:center;margin-right:-10px}
+  .nav__burger span{width:24px;height:1.5px;background:var(--ivory);transition:.35s cubic-bezier(.2,.8,.2,1)}
+  body.menu-open .nav__burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  body.menu-open .nav__burger span:nth-child(2){opacity:0}
+  body.menu-open .nav__burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+  /* ---------- drawer ---------- */
+  .drawer{position:fixed;inset:0;z-index:48;pointer-events:none;visibility:hidden}
+  .drawer__bg{position:absolute;inset:0;background:rgba(3,14,12,.65);opacity:0;transition:opacity .4s ease;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+  .drawer__panel{
+    position:absolute;top:0;right:0;height:100%;width:min(84vw,350px);
+    background:var(--silk-2);border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .45s cubic-bezier(.3,.9,.3,1);
+    padding:calc(30px + env(safe-area-inset-top,0px)) 32px calc(30px + var(--safe-b));
+    display:flex;flex-direction:column;overflow-y:auto;
+  }
+  body.menu-open .drawer{pointer-events:auto;visibility:visible}
+  body.menu-open .drawer__bg{opacity:1}
+  body.menu-open .drawer__panel{transform:none}
+  .drawer__eyebrow{font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:30px;font-weight:500}
+  .drawer a.dlink{
+    font-family:var(--display);font-size:25px;padding:15px 0;border-bottom:1px solid var(--line-soft);
+    display:flex;align-items:center;justify-content:space-between;transition:color .3s,padding-left .3s;
+  }
+  .drawer a.dlink:active{color:var(--gold-hi);padding-left:6px}
+  .drawer a.dlink span{font-size:14px;color:var(--gold);opacity:.7}
+  .drawer__foot{margin-top:auto;padding-top:30px}
+  .drawer__call{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:16px;font-weight:500;font-size:13px;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:#132a24;margin-bottom:14px}
+  .drawer__meta{font-size:12px;line-height:1.7;color:var(--muted);text-align:center}
+
+  /* ---------- hero: temple arch ---------- */
+  .hero{position:relative;padding:clamp(44px,8vw,84px) 0 0;text-align:center;overflow:hidden}
+  .hero__eyebrow{
+    display:inline-flex;align-items:center;gap:14px;font-size:clamp(10px,2.7vw,11px);
+    letter-spacing:.42em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:24px;font-weight:500;
+  }
+  .hero__eyebrow::before,.hero__eyebrow::after{content:'✦';font-size:9px;color:var(--gold)}
+  .hero h1{
+    font-family:var(--display);font-weight:400;font-size:clamp(34px,6.8vw,76px);
+    line-height:1.12;letter-spacing:.04em;max-width:22ch;margin:0 auto 22px;text-wrap:balance;
+  }
+  .hero h1 em{font-family:var(--serif);font-style:italic;color:var(--gold-hi);letter-spacing:.01em}
+  .hero__sub{font-size:clamp(14px,2.4vw,16.5px);line-height:1.8;color:var(--ivory-dim);max-width:54ch;margin:0 auto 32px;text-wrap:pretty}
+  .hero__actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center;justify-content:center;margin-bottom:clamp(40px,7vw,64px)}
+  .btn{
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;
+    padding:16px 32px;transition:.4s cubic-bezier(.2,.8,.2,1);cursor:pointer;border:0;
+    min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  }
+  .btn--gold{background:linear-gradient(120deg,var(--gold-deep),var(--gold),var(--gold-hi));background-size:200% auto;color:#132a24;box-shadow:0 16px 40px -14px rgba(201,162,79,.55)}
+  .btn--line{background:transparent;border:1px solid var(--gold);color:var(--gold-hi)}
+  @media(hover:hover){
+    .btn--gold:hover{background-position:right center;transform:translateY(-2px);box-shadow:0 22px 50px -16px rgba(233,205,126,.65)}
+    .btn--line:hover{background:rgba(201,162,79,.12)}
+  }
+
+  /* the arch */
+  .arch-wrap{position:relative;max-width:640px;margin:0 auto;padding:0 var(--pad)}
+  .arch{
+    position:relative;border-radius:999px 999px 0 0;overflow:hidden;
+    aspect-ratio:.82;border:1px solid var(--gold);
+    box-shadow:0 50px 110px -40px rgba(0,0,0,.8),0 0 0 10px rgba(201,162,79,.07);
+  }
+  .arch::after{
+    content:'';position:absolute;inset:10px;border:1px solid rgba(233,205,126,.5);
+    border-radius:999px 999px 0 0;z-index:2;pointer-events:none;
+  }
+  .arch img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);will-change:transform}
+  .arch__shade{position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,rgba(7,26,22,.6),transparent 40%)}
+  .arch__cap{position:absolute;left:0;right:0;bottom:18px;z-index:3;text-align:center}
+  .arch__cap b{font-family:var(--display);font-size:clamp(17px,3.4vw,21px);display:block;letter-spacing:.05em}
+  .arch__cap span{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-hi);display:block;margin-top:4px}
+  .arch-orn{position:absolute;top:16%;font-size:clamp(15px,3vw,20px);color:var(--gold);opacity:.65;animation:floaty 5s ease-in-out infinite}
+  .arch-orn--l{left:clamp(2%,4vw,12%)}
+  .arch-orn--r{right:clamp(2%,4vw,12%);animation-delay:2.5s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  /* stats */
+  .stats{padding:clamp(48px,8vw,72px) 0 0}
+  .stats__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(26px,4vw,20px);border-block:1px solid var(--line);padding:clamp(28px,5vw,40px) 0}
+  .stat{text-align:center;position:relative}
+  .stat:not(:last-child)::after{content:'✦';position:absolute;right:-6px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:8px;opacity:.6}
+  .stat b{font-family:var(--display);font-size:clamp(32px,6vw,52px);color:var(--gold-hi);display:block;line-height:1}
+  .stat span{font-size:clamp(9.5px,2.3vw,11px);letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:10px;display:block;line-height:1.6}
+
+  /* ---------- section head ---------- */
+  .shead{text-align:center;max-width:680px;margin:0 auto clamp(40px,7vw,60px)}
+  .shead .kick{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px}
+  .shead .kick::before,.shead .kick::after{content:'';width:30px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .shead .kick::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .shead h2{font-family:var(--display);font-weight:400;font-size:clamp(30px,5.8vw,56px);line-height:1.1;letter-spacing:.03em;text-wrap:balance}
+  .shead h2 em{font-family:var(--serif);font-style:italic;color:var(--gold-hi)}
+  .shead p{margin-top:14px;font-size:clamp(13.5px,2.3vw,15px);line-height:1.8;color:var(--ivory-dim)}
+  .pad{padding:clamp(64px,11vw,110px) 0}
+
+  /* ---------- sanctum showcase ---------- */
+  .sanctum{display:flex;flex-direction:column;gap:clamp(64px,10vw,110px)}
+  .relic{display:grid;grid-template-columns:1fr 1fr;gap:clamp(26px,5vw,70px);align-items:center}
+  .relic:nth-child(even) .relic__fig{order:2}
+  .relic__fig{position:relative;padding:0 clamp(6px,2vw,20px)}
+  .relic__arch{
+    position:relative;border-radius:999px 999px 0 0;overflow:hidden;aspect-ratio:.8;
+    border:1px solid var(--gold);box-shadow:0 40px 90px -40px rgba(0,0,0,.85);
+  }
+  .relic__arch::after{content:'';position:absolute;inset:9px;border:1px solid rgba(233,205,126,.45);border-radius:999px 999px 0 0;z-index:2;pointer-events:none}
+  .relic__arch img{width:100%;height:100%;object-fit:cover;will-change:transform}
+  .relic__no{
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);z-index:3;
+    font-family:var(--serif);font-style:italic;font-size:clamp(30px,5vw,44px);color:var(--gold-hi);
+    background:var(--silk);padding:0 18px;line-height:1;
+  }
+  .relic__cap .cat{font-size:10.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:500;display:block;margin-bottom:14px}
+  .relic__cap h3{font-family:var(--display);font-weight:400;font-size:clamp(26px,4.6vw,42px);line-height:1.12;letter-spacing:.03em;margin-bottom:14px}
+  .relic__cap h3 em{font-family:var(--serif);font-style:italic;color:var(--gold-hi)}
+  .relic__cap p{font-family:var(--serif);font-size:clamp(16px,2.8vw,19px);line-height:1.7;color:var(--ivory-dim);max-width:40ch;margin-bottom:18px}
+  .relic__meta{display:flex;gap:20px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-top:14px;border-top:1px solid var(--line);flex-wrap:wrap}
+  .relic__meta b{color:var(--gold-hi);font-weight:500}
+  .relic:nth-child(even) .relic__cap{text-align:right}
+  .relic:nth-child(even) .relic__cap p{margin-left:auto}
+  .relic:nth-child(even) .relic__meta{justify-content:flex-end}
+
+  /* ---------- treasures grid ---------- */
+  .treasures{background:rgba(7,26,22,.5);border-block:1px solid var(--line)}
+  .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2.5vw,24px)}
+  .jewel{
+    position:relative;background:var(--panel);padding:clamp(16px,2.5vw,22px);display:flex;flex-direction:column;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1),box-shadow .5s;
+  }
+  .jewel::before,.jewel::after{
+    content:'';position:absolute;width:22px;height:22px;border-color:var(--gold);border-style:solid;transition:.4s;z-index:2;
+  }
+  .jewel::before{top:8px;left:8px;border-width:1px 0 0 1px}
+  .jewel::after{bottom:8px;right:8px;border-width:0 1px 1px 0}
+  @media(hover:hover){
+    .jewel:hover{transform:translateY(-6px);box-shadow:0 34px 70px -34px rgba(0,0,0,.85)}
+    .jewel:hover::before,.jewel:hover::after{width:calc(100% - 16px);height:calc(100% - 16px)}
+  }
+  .jewel__img{aspect-ratio:1;overflow:hidden;margin-bottom:18px;position:relative}
+  .jewel__img img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+  @media(hover:hover){.jewel:hover .jewel__img img{transform:scale(1.07)}}
+  .jewel__tag{position:absolute;top:10px;left:10px;z-index:2;border:1px solid var(--gold);color:var(--gold-hi);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;font-weight:500;background:rgba(7,26,22,.6);backdrop-filter:blur(4px)}
+  .jewel__cat{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .jewel__name{font-family:var(--display);font-size:clamp(19px,3vw,23px);margin:7px 0 4px;line-height:1.15;letter-spacing:.02em}
+  .jewel__meta{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+  .jewel__meta b{color:var(--ivory-dim);font-weight:500}
+  .jewel__foot{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:14px;border-top:1px solid var(--line-soft)}
+  .stars{color:var(--gold);font-size:11px;letter-spacing:3px}
+  .enq{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--gold-hi);border:1px solid var(--line);padding:10px 15px;transition:.35s;cursor:pointer;background:none;min-height:40px}
+  @media(hover:hover){.enq:hover{background:var(--gold);border-color:var(--gold);color:#132a24}}
+  /* spotlight card spans the grid */
+  .jewel--wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:clamp(18px,3.5vw,40px)}
+  .jewel--wide .jewel__img{aspect-ratio:auto;height:clamp(160px,24vw,240px);flex:0 0 44%;margin-bottom:0}
+  .jewel--wide .jewel__body{flex:1;display:flex;flex-direction:column}
+  @media(max-width:760px){
+    .jewel--wide{flex:0 0 76%;max-width:300px;flex-direction:column;align-items:stretch;gap:0}
+    .jewel--wide .jewel__img{flex:none;height:auto;aspect-ratio:1;margin-bottom:18px}
+  }
+
+  /* ---------- heritage timeline ---------- */
+  .heritage{position:relative}
+  .tl{position:relative;max-width:760px;margin:0 auto;padding-left:0}
+  .tl__line{position:absolute;left:50%;top:0;bottom:0;width:1px;background:linear-gradient(var(--gold),rgba(201,162,79,.15));transform-origin:top;transform:translateX(-50%)}
+  .mile{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,56px);padding:clamp(22px,4vw,34px) 0}
+  .mile__dot{
+    position:absolute;left:50%;top:clamp(30px,5vw,44px);transform:translate(-50%,-50%) rotate(45deg);
+    width:11px;height:11px;background:var(--silk);border:1px solid var(--gold-hi);z-index:2;
+  }
+  .mile__yr{font-family:var(--display);font-size:clamp(28px,5.4vw,46px);color:var(--gold-hi);text-align:right;line-height:1.1}
+  .mile__txt h4{font-family:var(--display);font-size:clamp(17px,3vw,21px);letter-spacing:.03em;margin-bottom:8px}
+  .mile__txt p{font-family:var(--serif);font-size:clamp(15px,2.6vw,17px);line-height:1.65;color:var(--ivory-dim);max-width:30ch}
+
+  /* ---------- blessings ---------- */
+  .b-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .bless{
+    background:var(--panel);border:1px solid var(--line-soft);padding:32px 28px;position:relative;
+    transition:transform .5s ease,border-color .5s;
+  }
+  .bless::before{content:'❝';font-family:var(--serif);font-size:44px;color:var(--gold);opacity:.5;line-height:1;display:block;margin-bottom:8px}
+  @media(hover:hover){.bless:hover{transform:translateY(-5px);border-color:var(--line)}}
+  .bless .stars{display:block;margin-bottom:12px}
+  .bless h4{font-family:var(--serif);font-style:italic;font-size:21px;font-weight:500;line-height:1.25;margin-bottom:12px;color:var(--gold-hi)}
+  .bless p{font-size:14px;line-height:1.75;color:var(--ivory-dim);margin-bottom:20px}
+  .bless .who{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:16px;border-top:1px solid var(--line-soft)}
+  .bless .who b{font-family:var(--display);font-size:15px;letter-spacing:.06em}
+  .bless .who span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .swipe-hint{display:none;align-items:center;justify-content:center;gap:8px;margin-top:16px;color:var(--gold);font-size:10.5px;letter-spacing:.26em;text-transform:uppercase;font-weight:500}
+  .swipe-hint .arrow{animation:nudge 1.4s ease-in-out infinite}
+  @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+
+  /* ---------- CTA ---------- */
+  .cta{position:relative;text-align:center;padding:clamp(76px,13vw,124px) 0;overflow:hidden;isolation:isolate;border-top:1px solid var(--line)}
+  .cta::before{
+    content:'';position:absolute;left:50%;bottom:-40%;transform:translateX(-50%);z-index:-1;
+    width:min(720px,90vw);aspect-ratio:1;border-radius:50%;
+    background:radial-gradient(circle,rgba(201,162,79,.22),transparent 65%);
+  }
+  .cta .kick{display:block;font-size:11px;letter-spacing:.36em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:18px}
+  .cta h2{font-family:var(--display);font-weight:400;font-size:clamp(32px,6.6vw,68px);line-height:1.08;margin-bottom:18px;letter-spacing:.03em;text-wrap:balance}
+  .cta h2 em{font-family:var(--serif);font-style:italic;color:var(--gold-hi)}
+  .cta p{color:var(--ivory-dim);font-size:clamp(14px,2.4vw,16px);max-width:52ch;margin:0 auto 34px;line-height:1.8}
+  .cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--silk-deep);color:var(--muted);padding:clamp(56px,9vw,80px) 0 0;border-top:1px solid var(--line)}
+  .f-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:clamp(32px,5vw,40px);padding-bottom:clamp(40px,7vw,56px);border-bottom:1px solid var(--line-soft)}
+  .f-brand .brand{margin-bottom:18px}
+  .f-brand p{font-size:13.5px;line-height:1.85;max-width:34ch;color:var(--ivory-dim)}
+  .f-social{display:flex;gap:12px;margin-top:22px}
+  .f-social a{width:42px;height:42px;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-hi);transition:.35s;font-size:14px}
+  @media(hover:hover){.f-social a:hover{background:var(--gold);color:#132a24;border-color:var(--gold)}}
+  .f-col h5{font-family:var(--display);font-size:17px;color:var(--ivory);margin-bottom:16px;letter-spacing:.05em}
+  .f-col ul{list-style:none}
+  .f-col li{margin-bottom:11px}
+  .f-col a{font-size:13px;letter-spacing:.04em;transition:.3s;color:var(--ivory-dim)}
+  @media(hover:hover){.f-col a:hover{color:var(--gold-hi)}}
+  .f-contact p{font-size:13px;line-height:1.75;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;color:var(--ivory-dim)}
+  .f-contact .ic{color:var(--gold);flex-shrink:0}
+  .f-apps{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+  .f-apps a{border:1px solid var(--line);padding:9px 14px;font-size:11px;display:flex;gap:8px;align-items:center;color:var(--ivory-dim);transition:.3s}
+  @media(hover:hover){.f-apps a:hover{border-color:var(--gold);color:var(--gold-hi)}}
+  .f-apps small{display:block;font-size:8px;letter-spacing:.1em;text-transform:uppercase}
+  .f-apps b{font-size:12px;font-weight:500}
+  .f-bot{display:flex;justify-content:space-between;align-items:center;padding:24px 0 calc(24px + var(--safe-b));font-size:12px;flex-wrap:wrap;gap:10px}
+  .f-bot a{color:var(--gold-hi)}
+
+  /* ---------- fab + mobile bar ---------- */
+  .fab{
+    position:fixed;right:24px;bottom:24px;z-index:40;display:inline-flex;align-items:center;gap:10px;
+    background:linear-gradient(120deg,var(--gold-deep),var(--gold),var(--gold-hi));color:#132a24;
+    font-size:12.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+    padding:16px 24px;border-radius:50px;border:0;cursor:pointer;
+    box-shadow:0 18px 40px -12px rgba(201,162,79,.55);transition:transform .4s cubic-bezier(.2,.8,.2,1),box-shadow .4s;
+    animation:fabIn .6s 1s both;
+  }
+  @keyframes fabIn{from{transform:translateY(80px);opacity:0}to{transform:none;opacity:1}}
+  @media(hover:hover){.fab:hover{transform:translateY(-3px) scale(1.03)}}
+  .mbar{
+    display:none;position:fixed;left:0;right:0;bottom:0;z-index:42;
+    background:rgba(9,38,33,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+    border-top:1px solid var(--line);padding:10px 14px calc(10px + var(--safe-b));
+    grid-template-columns:1fr 1.5fr;gap:10px;transform:translateY(120%);transition:transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .mbar.show{transform:none}
+  .mbar a,.mbar button{
+    min-height:52px;font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+    display:flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+  }
+  .mbar .m-call{background:none;color:var(--gold-hi);border:1px solid var(--gold)}
+  .mbar .m-book{background:linear-gradient(120deg,var(--gold-deep),var(--gold),var(--gold-hi));color:#132a24}
+
+  /* ---------- modal ---------- */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal__bg{position:absolute;inset:0;background:rgba(3,14,12,.75);backdrop-filter:blur(8px);animation:fade .4s}
+  @keyframes fade{from{opacity:0}}
+  .modal__card{
+    position:relative;background:var(--silk-2);border:1px solid var(--gold);max-width:460px;width:100%;
+    padding:clamp(32px,7vw,46px) clamp(24px,6vw,40px);
+    box-shadow:0 50px 110px -30px rgba(0,0,0,.9);animation:pop .45s cubic-bezier(.2,.9,.3,1.2);
+    max-height:90svh;overflow-y:auto;
+  }
+  .modal__card::before{content:'';position:absolute;inset:7px;border:1px solid rgba(233,205,126,.3);pointer-events:none}
+  @keyframes pop{from{transform:translateY(22px) scale(.96);opacity:0}}
+  .modal__card .kicker{font-size:10.5px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .modal__card h3{font-family:var(--display);font-size:clamp(26px,6vw,32px);font-weight:400;margin:10px 0 8px;line-height:1.12;letter-spacing:.03em}
+  .modal__card h3 em{font-family:var(--serif);font-style:italic;color:var(--gold-hi)}
+  .modal__card p{font-size:13.5px;color:var(--ivory-dim);margin-bottom:24px;line-height:1.7}
+  .modal__card label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;display:block;margin-bottom:7px;color:var(--ivory-dim)}
+  .modal__card input,.modal__card select{
+    width:100%;padding:14px;border:1px solid var(--line-soft);font-family:var(--sans);font-size:16px;
+    margin-bottom:16px;background:var(--panel);color:var(--ivory);border-radius:0;
+  }
+  .modal__card input:focus,.modal__card select:focus{outline:none;border-color:var(--gold)}
+  .modal__card .btn--gold{width:100%}
+  .modal__close{position:absolute;top:12px;right:14px;width:42px;height:42px;background:none;border:0;font-size:26px;cursor:pointer;color:var(--muted);line-height:1;z-index:2}
+  .modal__ok{text-align:center}
+  .modal__ok .big{font-family:var(--serif);font-style:italic;font-size:40px;margin-bottom:10px;color:var(--gold-hi)}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:980px){
+    .nav__links,.nav__cta{display:none}
+    .nav__burger{display:flex}
+    .t-grid{grid-template-columns:repeat(2,1fr)}
+    .b-rail{grid-template-columns:1fr}
+    .f-top{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .fab{display:none}
+    .mbar{display:grid}
+    footer{padding-bottom:0}
+    .f-bot{padding-bottom:calc(90px + var(--safe-b))}
+    .stats__grid{grid-template-columns:repeat(2,1fr);gap:26px 12px}
+    .stat::after{display:none!important}
+    .relic,.relic:nth-child(even){grid-template-columns:1fr}
+    .relic:nth-child(even) .relic__fig{order:0}
+    .relic:nth-child(even) .relic__cap{text-align:left}
+    .relic:nth-child(even) .relic__cap p{margin-left:0}
+    .relic:nth-child(even) .relic__meta{justify-content:flex-start}
+    .relic__fig{max-width:420px;margin:0 auto;width:100%}
+    .t-grid{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--pad));padding:4px var(--pad) 14px}
+    .t-grid::-webkit-scrollbar{display:none}
+    .jewel{flex:0 0 76%;max-width:300px;scroll-snap-align:center}
+    .b-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin:0 calc(-1*var(--pad));padding:4px var(--pad) 10px}
+    .b-rail::-webkit-scrollbar{display:none}
+    .bless{flex:0 0 84%;max-width:360px;scroll-snap-align:center}
+    .swipe-hint{display:flex}
+    /* timeline: line moves left, single column */
+    .tl__line{left:10px}
+    .mile{grid-template-columns:1fr;gap:6px;padding-left:34px}
+    .mile__dot{left:10px}
+    .mile__yr{text-align:left}
+    .mile__txt p{max-width:none}
+  }
+  @media(max-width:520px){
+    .f-top{grid-template-columns:1fr}
+    .hero__actions{flex-direction:column;align-items:stretch;gap:12px;width:100%;padding:0 var(--pad)}
+    .hero__actions .btn{width:100%}
+    .cta .row{flex-direction:column;align-items:stretch;padding:0 var(--pad)}
+    .cta .row .btn{width:100%}
+    .arch-orn{display:none}
+  }
+  /* touch feedback */
+  @media(hover:none){
+    .btn:active,.enq:active,.nav__cta:active{transform:scale(.97);transition-duration:.15s}
+    .jewel:active .jewel__img img{transform:scale(1.04)}
+    .bless:active{transform:translateY(-3px)}
+    .relic__arch:active img{transform:scale(1.03)}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+    .wi{transform:none!important}
+    [data-sr]{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body class="no-js">
+<script>document.body.classList.remove('no-js')</script>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker__track">
+    <span>Single Digit Wastage — Just 9%</span>
+    <span>August Advantage · Wastage from 9% to 14.99%</span>
+    <span>44 Years of Trust</span>
+    <span>Hallmark 22KT Gold</span>
+    <span>Anniversary Offer · Special Discounts</span>
+    <span>Single Digit Wastage — Just 9%</span>
+    <span>August Advantage · Wastage from 9% to 14.99%</span>
+    <span>44 Years of Trust</span>
+    <span>Hallmark 22KT Gold</span>
+    <span>Anniversary Offer · Special Discounts</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark">S</span>
+      <span class="brand__txt"><b>Swarnambigai</b><small>Jewellers · Est. 1981</small></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#sanctum">Sanctum</a></li>
+      <li><a href="#treasures">Treasures</a></li>
+      <li><a href="#heritage">Heritage</a></li>
+      <li><a href="#blessings">Blessings</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+    <button class="nav__cta" data-book>Book Appointment</button>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- DRAWER -->
+<div class="drawer" id="drawer">
+  <div class="drawer__bg" data-menu-close></div>
+  <aside class="drawer__panel" role="dialog" aria-label="Menu">
+    <span class="drawer__eyebrow">Sri Swarnambigai · 1981</span>
+    <a class="dlink" href="#sanctum" data-menu-close>Sanctum <span>→</span></a>
+    <a class="dlink" href="#treasures" data-menu-close>Treasures <span>→</span></a>
+    <a class="dlink" href="#heritage" data-menu-close>Heritage <span>→</span></a>
+    <a class="dlink" href="#blessings" data-menu-close>Blessings <span>→</span></a>
+    <a class="dlink" href="#visit" data-menu-close>Visit Us <span>→</span></a>
+    <div class="drawer__foot">
+      <a class="drawer__call" href="tel:+919789720887">✆ Call +91 97897 20887</a>
+      <p class="drawer__meta">40/41, Vysial Street, Town Hall<br>Coimbatore 641001</p>
+    </div>
+  </aside>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="hero__eyebrow" id="heroEyebrow">Coimbatore · Since 1981</span>
+    <h1 id="heroTitle">Where every ornament tells a <em>story of trust</em></h1>
+    <p class="hero__sub" id="heroSub">A legacy of 44 years in the heart of Coimbatore. Handcrafted hallmark gold, antique masterpieces and bridal collections — now with single digit wastage, just 9%.</p>
+    <div class="hero__actions" id="heroActions">
+      <button class="btn btn--gold" data-book>Book an Appointment</button>
+      <a class="btn btn--line" href="#sanctum">Enter the Sanctum</a>
+    </div>
+  </div>
+  <div class="arch-wrap" id="archWrap">
+    <span class="arch-orn arch-orn--l" aria-hidden="true">✦</span>
+    <span class="arch-orn arch-orn--r" aria-hidden="true">❖</span>
+    <figure class="arch">
+      <img id="archImg" src="assets/hero-bridal-choker.jpg" alt="Bridal choker in 22KT hallmark gold" loading="eager" referrerpolicy="no-referrer">
+      <div class="arch__shade"></div>
+      <figcaption class="arch__cap"><b>The Bridal Choker</b><span>41.530 g · 22KT Hallmark</span></figcaption>
+    </figure>
+  </div>
+  <div class="wrap stats">
+    <div class="stats__grid">
+      <div class="stat" data-sr><b data-count="44">0</b><span>Years of<br>unbroken trust</span></div>
+      <div class="stat" data-sr><b data-count="9" data-suffix="%">0</b><span>Single digit<br>wastage only</span></div>
+      <div class="stat" data-sr><b>22KT</b><span>BIS Hallmark<br>certified gold</span></div>
+      <div class="stat" data-sr><b>10K+</b><span>Happy families<br>&amp; counting</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="zari" aria-hidden="true"><span>✦ ❖ ✦</span></div>
+
+<!-- SANCTUM -->
+<section class="pad" id="sanctum" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead" data-sr>
+      <span class="kick">The Inner Sanctum</span>
+      <h2>Three crafts, <em>one devotion</em></h2>
+      <p>The pieces our artisans measure their years by — antique, polki and bridal work in pure 22KT hallmark gold.</p>
+    </div>
+    <div class="sanctum">
+      <article class="relic">
+        <div class="relic__fig" data-sr>
+          <span class="relic__no">i</span><div class="relic__arch"><img src="assets/bridal-haaram.jpg" alt="Bridal haaram" loading="lazy" referrerpolicy="no-referrer" data-plx></div>
+        </div>
+        <div class="relic__cap" data-sr>
+          <span class="cat">Bridal</span>
+          <h3>The bridal <em>haaram</em></h3>
+          <p>Fifty grams of ceremony. Layered temple work that falls exactly where a bride's day begins — and where three generations of albums agree.</p>
+          <div class="relic__meta"><span><b>50.800 g</b> · 22KT</span><span>Temple Work</span><span>BIS Hallmark</span></div>
+        </div>
+      </article>
+      <article class="relic">
+        <div class="relic__fig" data-sr>
+          <span class="relic__no">ii</span><div class="relic__arch"><img src="assets/polki-necklace.jpg" alt="Polki necklace" loading="lazy" referrerpolicy="no-referrer" data-plx></div>
+        </div>
+        <div class="relic__cap" data-sr>
+          <span class="cat">Polki</span>
+          <h3>Uncut light, <em>royal finish</em></h3>
+          <p>Polki settings that hold light the way lamp flames do — softly, and all at once. A royal finish for occasions that deserve one.</p>
+          <div class="relic__meta"><span><b>9.670 g</b> · 22KT</span><span>Uncut Diamond</span><span>Bridal Ready</span></div>
+        </div>
+      </article>
+      <article class="relic">
+        <div class="relic__fig" data-sr>
+          <span class="relic__no">iii</span><div class="relic__arch"><img src="assets/antique-necklace.jpg" alt="Antique necklace" loading="lazy" referrerpolicy="no-referrer" data-plx></div>
+        </div>
+        <div class="relic__cap" data-sr>
+          <span class="cat">Antique</span>
+          <h3>The antique <em>necklace</em></h3>
+          <p>Deep-relief craft burnished by hand, the way it was done when our first counter opened in 1981. Some things should not be modernised.</p>
+          <div class="relic__meta"><span><b>23.720 g</b> · 22KT</span><span>Handcrafted</span><span>Heirloom</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TREASURES -->
+<section class="pad treasures" id="treasures">
+  <div class="wrap">
+    <div class="shead" data-sr>
+      <span class="kick">Trending This Week</span>
+      <h2>The treasury, <em>open</em></h2>
+      <p>Handpicked by our craftsmen — carefully selected to reflect your style and personality.</p>
+    </div>
+    <div class="t-grid">
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/bangles.jpg" alt="Antique Bangles" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Bangles</span>
+        <h3 class="jewel__name">Antique Bangles</h3>
+        <p class="jewel__meta"><b>20.120 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/polki-necklace.jpg" alt="Polki Necklace" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Polki</span>
+        <h3 class="jewel__name">Polki Necklace</h3>
+        <p class="jewel__meta"><b>9.670 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/hero-bridal-choker.jpg" alt="Bridal Choker" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Bridal</span>
+        <h3 class="jewel__name">Bridal Choker</h3>
+        <p class="jewel__meta"><b>41.530 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/antique-necklace.jpg" alt="Antique Necklace" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Antique</span>
+        <h3 class="jewel__name">Antique Necklace</h3>
+        <p class="jewel__meta"><b>23.720 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/bridal-haaram.jpg" alt="Bridal Haaram" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Bridal</span>
+        <h3 class="jewel__name">Bridal Haaram</h3>
+        <p class="jewel__meta"><b>50.800 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/kada-bangles.jpg" alt="Antique Ladies Kada" loading="lazy" referrerpolicy="no-referrer"></div>
+        <span class="jewel__cat">Kada</span>
+        <h3 class="jewel__name">Antique Ladies Kada</h3>
+        <p class="jewel__meta"><b>15.200 g</b> · 22 Karat</p>
+        <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+      </article>
+      <article class="jewel jewel--wide" data-sr>
+        <div class="jewel__img"><span class="jewel__tag">22KT</span><img src="assets/gold-chain.jpg" alt="Pearl and gold chain" loading="lazy" referrerpolicy="no-referrer"></div>
+        <div class="jewel__body">
+          <span class="jewel__cat">Chains &amp; Pendants</span>
+          <h3 class="jewel__name">Pearl &amp; Gold Chain</h3>
+          <p class="jewel__meta"><b>Daily Wear</b> · 22 Karat Hallmark</p>
+          <div class="jewel__foot"><span class="stars">★★★★★</span><button class="enq" data-book>Enquire</button></div>
+        </div>
+      </article>
+    </div>
+    <p class="swipe-hint">Swipe for more <span class="arrow">→</span></p>
+  </div>
+</section>
+
+<!-- HERITAGE -->
+<section class="pad heritage" id="heritage">
+  <div class="wrap">
+    <div class="shead" data-sr>
+      <span class="kick">Since 1981</span>
+      <h2>Forty-four years, <em>one street</em></h2>
+      <p>A short history of a long promise — purity you can trust, designs you'll treasure, value that respects your family.</p>
+    </div>
+    <div class="tl" id="tl">
+      <span class="tl__line" id="tlLine"></span>
+      <div class="mile" data-sr>
+        <span class="mile__dot"></span>
+        <div class="mile__yr">1981</div>
+        <div class="mile__txt"><h4>The first counter</h4><p>A small family store opens on Vysial Street, Town Hall — one counter, one promise.</p></div>
+      </div>
+      <div class="mile" data-sr>
+        <span class="mile__dot"></span>
+        <div class="mile__yr">1990s</div>
+        <div class="mile__txt"><h4>The antique atelier</h4><p>Our artisans master deep-relief antique and temple work — crafts we still refuse to modernise.</p></div>
+      </div>
+      <div class="mile" data-sr>
+        <span class="mile__dot"></span>
+        <div class="mile__yr">2010s</div>
+        <div class="mile__txt"><h4>The hallmark era</h4><p>Every piece BIS Hallmark certified 22KT, with our signature Blue Box packaging and gold savings app.</p></div>
+      </div>
+      <div class="mile" data-sr>
+        <span class="mile__dot"></span>
+        <div class="mile__yr">Today</div>
+        <div class="mile__txt"><h4>Ten thousand families</h4><p>44 years on, with single digit wastage — just 9% — and the same street, the same promise.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLESSINGS -->
+<section class="pad" id="blessings" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead" data-sr>
+      <span class="kick">What Our Clients Say</span>
+      <h2>Blessings from <em>our families</em></h2>
+      <p>Find your perfect piece today — here's what our families have to say.</p>
+    </div>
+    <div class="b-rail">
+      <div class="bless" data-sr>
+        <span class="stars">★★★★★</span>
+        <h4>Seal Your Love in Gold</h4>
+        <p>I bought a couple of rings from here and I'm in love with them! The designs are trendy yet traditional, and the quality is top-notch. Will definitely come back for more.</p>
+        <div class="who"><b>Aishu</b><span>Coimbatore</span></div>
+      </div>
+      <div class="bless" data-sr>
+        <span class="stars">★★★★★</span>
+        <h4>Timeless Grace, Pure Gold Haaram</h4>
+        <p>I recently purchased an antique Haaram and it's absolutely stunning! The craftsmanship is detailed and elegant — I received so many compliments. Thank you for preserving tradition so beautifully!</p>
+        <div class="who"><b>Durga</b><span>Coimbatore</span></div>
+      </div>
+      <div class="bless" data-sr>
+        <span class="stars">★★★★★</span>
+        <h4>Light on Gold, Heavy on Elegance</h4>
+        <p>My earrings from Sri Swarnambigai are now my favourite! Lightweight, stylish and perfectly crafted. The team helped me pick just what I needed for my occasion.</p>
+        <div class="who"><b>Soundarya</b><span>Coimbatore</span></div>
+      </div>
+      <div class="bless" data-sr>
+        <span class="stars">★★★★★</span>
+        <h4>Shine Royal, Wear Polki</h4>
+        <p>The Polki chain I bought is just gorgeous. It has such a royal finish and looks even better than I expected. The staff were patient and helpful too. Highly recommended!</p>
+        <div class="who"><b>Mounika</b><span>Coimbatore</span></div>
+      </div>
+      <div class="bless" data-sr>
+        <span class="stars">★★★★★</span>
+        <h4>Tiny Treasures for Your Little Stars</h4>
+        <p>I purchased a cute bracelet for my daughter and she loves it! The design is delicate and safe for kids. Really happy with the service and product quality.</p>
+        <div class="who"><b>Ilakiya</b><span>Coimbatore</span></div>
+      </div>
+    </div>
+    <p class="swipe-hint">Swipe for more <span class="arrow">→</span></p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="visit">
+  <div class="wrap" data-sr>
+    <span class="kick">Appointments &amp; Visits</span>
+    <h2>Visit us, or let us <em>come to you</em></h2>
+    <p>Step into our store on Vysial Street, or book a personal appointment with our sales team. We're always happy to help you find the perfect piece.</p>
+    <div class="row">
+      <button class="btn btn--gold" data-book>Book an Appointment</button>
+      <a class="btn btn--line" href="https://maps.google.com/?q=Sri+Swarnambigai+Jewellers+Vysial+Street+Coimbatore" target="_blank" rel="noopener">Get Directions</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <div class="brand">
+          <span class="brand__mark">S</span>
+          <span class="brand__txt"><b>Swarnambigai</b><small>Jewellers · Est. 1981</small></span>
+        </div>
+        <p>A legacy of trust and craftsmanship since 1981. Hallmark gold, antique pieces, bridal collections and silverware — in the heart of Coimbatore.</p>
+        <div class="f-social">
+          <a href="https://www.instagram.com/swarnambigai_jewellers_ssj/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+          <a href="https://www.facebook.com/profile.php?id=100065041482118" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://www.youtube.com/@SriSwarnambigaiJewellers" target="_blank" rel="noopener" aria-label="YouTube">▶</a>
+          <a href="https://wa.me/919789720887" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a>
+        </div>
+      </div>
+      <div class="f-col">
+        <h5>Collections</h5>
+        <ul>
+          <li><a href="#sanctum">Haaram</a></li>
+          <li><a href="#sanctum">Antique Necklace</a></li>
+          <li><a href="#treasures">Bangles</a></li>
+          <li><a href="#treasures">Rings</a></li>
+          <li><a href="#treasures">Earrings</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h5>More</h5>
+        <ul>
+          <li><a href="#treasures">Chains</a></li>
+          <li><a href="#treasures">Bracelets</a></li>
+          <li><a href="#treasures">Pendants</a></li>
+          <li><a href="#sanctum">Bridal Set</a></li>
+          <li><a href="#treasures">Metal Coins</a></li>
+        </ul>
+      </div>
+      <div class="f-col f-contact">
+        <h5>Visit Us</h5>
+        <p><span class="ic">⌖</span> 40/41, Vysial Street, Town Hall, Coimbatore, Tamil Nadu 641001</p>
+        <p><span class="ic">✆</span> <a href="tel:+919789720887">+91 97897 20887</a></p>
+        <p><span class="ic">✉</span> <a href="mailto:ssj20887@gmail.com">ssj20887@gmail.com</a></p>
+        <div class="f-apps">
+          <a href="https://play.google.com/store/apps/details?id=swarnambigai.saving" target="_blank" rel="noopener"><span>▶</span><span><small>Get it on</small><b>Google Play</b></span></a>
+          <a href="#"><span></span><span><small>Download on</small><b>App Store</b></span></a>
+        </div>
+      </div>
+    </div>
+    <div class="f-bot">
+      <span>© 1981–2026 Sri Swarnambigai Jewellers. All rights reserved.</span>
+      <span>Concept &amp; design by <a href="https://akadpr.github.io/portfolio/" target="_blank" rel="noopener">Mytheen S</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FAB -->
+<button class="fab" data-book><span>✦</span><span>Book Appointment</span></button>
+
+<!-- MOBILE BAR -->
+<div class="mbar" id="mbar">
+  <a class="m-call" href="tel:+919789720887">✆ Call</a>
+  <button class="m-book" data-book>✦ Book Appointment</button>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="modal__bg" data-close></div>
+  <div class="modal__card">
+    <button class="modal__close" data-close aria-label="Close">×</button>
+    <div id="mForm">
+      <span class="kicker">In-store Appointment</span>
+      <h3 id="mTitle">Book your <em>visit</em></h3>
+      <p>Tell us a little about you and our sales team will reach out to confirm your appointment.</p>
+      <label for="nm">Your Name</label>
+      <input id="nm" type="text" placeholder="Full name" autocomplete="name">
+      <label for="ph">Phone</label>
+      <input id="ph" type="tel" placeholder="+91 .........." autocomplete="tel">
+      <label for="ints">Interested In</label>
+      <select id="ints">
+        <option>Bridal Collection</option>
+        <option>Antique Necklace</option>
+        <option>Bangles</option>
+        <option>Rings</option>
+        <option>Earrings</option>
+        <option>Just browsing</option>
+      </select>
+      <button class="btn btn--gold" id="mSubmit">Request Appointment</button>
+    </div>
+    <div class="modal__ok" id="mOk" style="display:none">
+      <div class="big">Nandri</div>
+      <h3>Thank <em>you!</em></h3>
+      <p>This is a demo form. In the live site, your request would reach the SSJ sales team instantly via WhatsApp &amp; email.</p>
+      <button class="btn btn--gold" data-close>Close</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script>
+  const body=document.body;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const hasGsap=typeof gsap!=='undefined';
+  if(!hasGsap||reduced)body.classList.add('no-anim');
+
+  /* nav + mobile bar */
+  const nav=document.getElementById('nav');
+  const mbar=document.getElementById('mbar');
+  const onScroll=()=>{
+    const y=window.scrollY;
+    nav.classList.toggle('scrolled',y>40);
+    mbar.classList.toggle('show',y>window.innerHeight*0.55);
+  };
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+
+  /* drawer */
+  const burger=document.getElementById('burger');
+  const openMenu=()=>{body.classList.add('menu-open');burger.setAttribute('aria-expanded','true');body.style.overflow='hidden'};
+  const closeMenu=()=>{body.classList.remove('menu-open');burger.setAttribute('aria-expanded','false');body.style.overflow=''};
+  burger.addEventListener('click',()=>body.classList.contains('menu-open')?closeMenu():openMenu());
+  document.querySelectorAll('[data-menu-close]').forEach(el=>el.addEventListener('click',closeMenu));
+
+  /* modal */
+  const modal=document.getElementById('modal');
+  const openM=()=>{closeMenu();modal.classList.add('open');body.style.overflow='hidden'};
+  const closeM=()=>{modal.classList.remove('open');body.style.overflow='';
+    setTimeout(()=>{document.getElementById('mForm').style.display='';document.getElementById('mOk').style.display='none'},300)};
+  document.querySelectorAll('[data-book]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();openM()}));
+  document.querySelectorAll('[data-close]').forEach(b=>b.addEventListener('click',closeM));
+  addEventListener('keydown',e=>{if(e.key==='Escape'){closeM();closeMenu()}});
+  document.getElementById('mSubmit').addEventListener('click',()=>{
+    document.getElementById('mForm').style.display='none';
+    document.getElementById('mOk').style.display='block';
+  });
+
+  /* image fallback */
+  document.querySelectorAll('img[referrerpolicy]').forEach(img=>{
+    img.addEventListener('error',()=>{
+      img.style.display='none';
+      img.parentElement.style.background='radial-gradient(130% 100% at 35% 25%,#e9cd7e,#c9a24f 45%,#0f3a32)';
+    });
+  });
+
+  /* headline word masking */
+  function splitWords(el){
+    const parts=[];
+    el.childNodes.forEach(node=>{
+      if(node.nodeType===3){node.textContent.split(/\s+/).filter(Boolean).forEach(w=>parts.push({w,em:false}))}
+      else if(node.nodeType===1){node.textContent.split(/\s+/).filter(Boolean).forEach(w=>parts.push({w,em:node.tagName==='EM'}))}
+    });
+    el.innerHTML=parts.map(p=>{
+      const inner=`<span class="wm"><span class="wi">${p.w}</span></span>`;
+      return p.em?`<em>${inner}</em>`:inner;
+    }).join(' ');
+  }
+
+  if(hasGsap&&!reduced){
+    gsap.registerPlugin(ScrollTrigger);
+    const title=document.getElementById('heroTitle');
+    splitWords(title);
+
+    /* temple doors opening: arch rises, headline unveils */
+    const intro=gsap.timeline({defaults:{ease:'power3.out'}});
+    intro.from('#heroEyebrow',{y:20,opacity:0,duration:.7},.2)
+      .to(title.querySelectorAll('.wi'),{y:0,duration:.9,stagger:.05},.35)
+      .from('#heroSub',{y:24,opacity:0,duration:.8},.85)
+      .from('#heroActions',{y:24,opacity:0,duration:.8},1)
+      .from('#archWrap',{y:70,opacity:0,duration:1.1,ease:'power2.out'},.9)
+      .fromTo('#archImg',{scale:1.2},{scale:1.06,duration:2,ease:'power2.out'},.9);
+
+    /* arch drift */
+    gsap.to('#archImg',{yPercent:7,ease:'none',
+      scrollTrigger:{trigger:'#archWrap',start:'top bottom',end:'bottom top',scrub:true}});
+
+    /* reveals */
+    gsap.utils.toArray('[data-sr]').forEach(el=>{
+      gsap.fromTo(el,{opacity:0,y:28},{opacity:1,y:0,duration:.9,ease:'power3.out',
+        scrollTrigger:{trigger:el,start:'top 88%',once:true}});
+    });
+
+    /* relic parallax */
+    gsap.utils.toArray('[data-plx]').forEach(img=>{
+      gsap.fromTo(img,{yPercent:-5,scale:1.12},{yPercent:5,scale:1.12,ease:'none',
+        scrollTrigger:{trigger:img,start:'top bottom',end:'bottom top',scrub:true}});
+    });
+
+    /* counters */
+    gsap.utils.toArray('[data-count]').forEach(el=>{
+      const target=+el.dataset.count,suffix=el.dataset.suffix||'';
+      ScrollTrigger.create({trigger:el,start:'top 90%',once:true,
+        onEnter:()=>{const o={v:0};
+          gsap.to(o,{v:target,duration:1.5,ease:'power2.out',
+            onUpdate:()=>{el.textContent=Math.round(o.v)+suffix}})}});
+    });
+
+    /* heritage line draws with scroll */
+    gsap.fromTo('#tlLine',{scaleY:0},{scaleY:1,ease:'none',
+      scrollTrigger:{trigger:'#tl',start:'top 78%',end:'bottom 62%',scrub:.5}});
+  }else{
+    document.querySelectorAll('[data-count]').forEach(el=>{el.textContent=el.dataset.count+(el.dataset.suffix||'')});
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+    },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('[data-sr]').forEach(el=>io.observe(el));
+  }
+</script>
+</body>
+</html>

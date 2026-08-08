@@ -1,8 +1,8 @@
-# SSJ Website — The Two Options
+# SSJ Website — The Options
 
-Two finalist designs for Sri Swarnambigai Jewellers. Identical business content (copy,
+Finalist designs for Sri Swarnambigai Jewellers. Identical business content (copy,
 products, weights, contacts, testimonials, offers) — opposite design identities. All 7
-photographs appear in both. Older drafts live in `archive/`.
+photographs appear in each. Older drafts live in `archive/`.
 
 ## Option A — `index.html` · "The Midnight Vault"
 
@@ -35,17 +35,34 @@ A printed magazine issue. Vol. 44, Coimbatore edition.
 - **Mobile:** collage-first cover, full-width plates, thumbnail index rows, letters as
   swipeable snap rail, bottom call/book bar, tap feedback
 
+## Option C — `index6.html` · "The Silk Sanctum"
+
+A South Indian temple treasury wrapped in Kanjivaram silk.
+
+- **Identity:** deep peacock-emerald silk (woven CSS texture) + gold zari + rose maroon,
+  Marcellus roman capitals + EB Garamond italics + Mulish, diamond-rotated monogram,
+  ornamental ✦ dividers
+- **Signature moments:** temple-arch frames around every hero and sanctum image with
+  double gold borders and floating ornaments; roman-numeral medallions; "Heritage" —
+  a 1981→today timeline whose gold line draws itself as you scroll; treasure cards with
+  gold corner brackets that trace the full border on hover
+- **Motion:** GSAP arch-rise intro, masked headline, parallax inside arches, counters,
+  scroll-drawn timeline
+- **Mobile:** arches stack centered, snap rails for treasures and blessings, timeline
+  shifts to left-rail layout, bottom call/book bar, tap feedback
+
 ## The differentiation rule
 
-| | A — Midnight Vault | B — House Journal |
-|---|---|---|
-| World | Night showroom | Printed magazine |
-| Palette | Obsidian + champagne gold | Ivory + ink + maroon |
-| Type | Fraunces + Jost | Italiana + Cormorant + Work Sans |
-| Opening | Preloader curtain → cinematic cover | Masthead assembles like a front page |
-| Gallery | Pinned horizontal vault | Numbered lookbook plates |
-| Products | Dark cards | Price-index rows with live preview |
-| Texture | Film grain | Paper noise + hairline rules |
+| | A — Midnight Vault | B — House Journal | C — Silk Sanctum |
+|---|---|---|---|
+| World | Night showroom | Printed magazine | Temple treasury |
+| Palette | Obsidian + champagne gold | Ivory + ink + maroon | Peacock silk + zari gold |
+| Type | Fraunces + Jost | Italiana + Cormorant + Work Sans | Marcellus + EB Garamond + Mulish |
+| Opening | Preloader curtain → cinematic cover | Masthead assembles like a front page | Arch rises, ornaments float |
+| Gallery | Pinned horizontal vault | Numbered lookbook plates | Arch-framed sanctum relics |
+| Products | Dark cards | Price-index rows with live preview | Corner-bracket treasure cards |
+| Texture | Film grain | Paper noise + hairline rules | Woven silk + zari dividers |
+| Unique | Magnetic CTAs | Pre-filled enquiry rows | Scroll-drawn heritage timeline |
 
 Every future change goes to whichever version's world it belongs in, expressed in that
 version's language. If it fits both, it's too generic for either.
