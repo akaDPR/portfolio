@@ -496,6 +496,14 @@
   .swipe-hint .arrow{animation:nudge 1.4s ease-in-out infinite}
   @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
 
+  /* touch feedback — hover states don't exist on mobile, taps should feel alive */
+  @media(hover:none){
+    .btn:active,.enq:active,.nav__cta:active{transform:scale(.97);transition-duration:.15s}
+    .p-card:active .p-card__img img{transform:scale(1.04)}
+    .col-card:active img{transform:scale(1.05)}
+    .col-card:active .frame{border-color:rgba(216,182,95,.7)}
+    .t-card:active{transform:translateY(-3px)}
+  }
   @media(prefers-reduced-motion:reduce){
     *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
     .reveal{opacity:1;transform:none}
