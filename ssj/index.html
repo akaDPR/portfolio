@@ -28,7 +28,7 @@
     --sans:'Inter',system-ui,sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
   body{
     font-family:var(--sans);
     background:var(--white);
@@ -199,8 +199,9 @@
   .hero h1 em{font-style:italic;font-weight:400}
   .hero__sub{
     font-size:clamp(14.5px,2.4vw,17.5px);line-height:1.7;font-weight:300;
-    color:var(--ink-soft);max-width:46ch;margin-bottom:34px;
+    color:var(--ink-soft);max-width:46ch;margin-bottom:34px;text-wrap:pretty;
   }
+  .hero h1,.sec-head h2{text-wrap:balance}
   .hero__actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
   .btn{
     font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
@@ -445,12 +446,19 @@
     /* trust: 2x2 instead of 4 squished columns */
     .trust__grid{grid-template-columns:repeat(2,1fr);gap:32px 16px}
     .trust__item::after{display:none!important}
-    /* hero sized to content, photo recedes behind text */
-    .hero{min-height:auto}
-    .hero__inner{padding:36px 0 52px}
-    .hero__photo{opacity:.3;width:min(248px,54vw);right:-14%;top:46%}
-    .hero__photo .gcap,.hero__dots{display:none}
-    .hero__deco{opacity:.6}
+    /* hero: text first, then the crossfade gallery as a full in-flow showcase */
+    .hero{min-height:auto;display:flex;flex-direction:column}
+    .hero__inner{order:1;padding:36px 0 0}
+    .hero__photo{
+      order:2;position:relative;right:auto;top:auto;transform:none;opacity:1;
+      width:calc(100% - 2*var(--pad));margin:30px auto 44px;
+      aspect-ratio:.88;border-radius:200px 200px 14px 14px;
+    }
+    .hero__deco{opacity:.5;top:24%}
+    .hero__stats{display:none} /* trust strip below covers these */
+    .gcap{left:18px;bottom:16px}
+    .hero__dots{right:14px;bottom:10px;gap:8px}
+    .dot{width:26px;height:16px;padding:6.5px 0;background-clip:content-box}
     .p-scroller{
       display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;
       -webkit-overflow-scrolling:touch;scrollbar-width:none;
